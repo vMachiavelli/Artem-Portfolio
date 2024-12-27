@@ -1,0 +1,139 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .scalable-logo {
+    width: auto;
+    height: 5vw; /* Adjust as needed for scalability */
+    max-height: 50px; /* Optional: Set a max height */
+  }
+
+  .logos {
+    display: flex;
+    gap: 10px; /* Adjust spacing between logos */
+    align-items: center; /* Vertically center align logos */
+  }
+  .connections p {
+    margin: 10px 0; /* Space out the email links */
+  }
+  
+  /* Moving Gradient Background */
+  body {
+    background: linear-gradient(120deg, #135671, #203984, #111576, #451c7b, #6b1795);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+  }
+  
+  /* Keyframes for Gradient Animation */
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* App Layout */
+  .app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 25%;
+    background-color: rgba(47, 42, 42, 0.198); /* Slightly transparent */
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.70);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: rgba(47, 42, 42, 0.198); /* Slightly transparent */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.70);
+  }
+  
+  /* Tabs */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .tab-button {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .tab-button:hover {
+    background: #ddd;
+  }
+  
+  .tab-button.active {
+    background: #666;
+    color: #fff;
+  }
+  
+  /* Tab Content */
+.tab-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-panel {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(100%); /* Move it off-screen initially */
+  transition: transform 0.5s ease;
+  opacity: 0; /* Make it invisible when inactive */
+  pointer-events: none; /* Prevent interaction with inactive tabs */
+}
+
+.tab-panel.active {
+  transform: translateX(0); /* Bring the active panel into view */
+  opacity: 1; /* Make it visible */
+  pointer-events: auto; /* Enable interaction */
+}
+
+.tab-panel.inactive {
+  transform: translateX(-100%); /* Move inactive tabs completely out of view */
+  opacity: 0; /* Keep it invisible */
+  pointer-events: none; /* Prevent interaction */
+}
+  
