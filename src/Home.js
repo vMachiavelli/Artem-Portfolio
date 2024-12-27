@@ -8,16 +8,16 @@ const Home = () => {
         <h2>Connect With Me</h2>
         <div className="connections">
           <div className = "logos">
-            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-              <img src="/174857.png" alt="LinkedIn Logo" className="scalable-logo" />
+            <a href="https://www.linkedin.com/in/artem-morozov-21017a275/" target="_blank" rel="noopener noreferrer">
+              <img src="/linkedin-svgrepo-com.svg" alt="LinkedIn Logo" className="scalable-logo" />
             </a>
             <a href ="https://github.com/vMachiavelli" target = "_blank" rel = "noopner noreferrer" >
-              <img src = "/Octicons-mark-github.svg" alt = "githHub logo" className = "scalable-logo" />
+              <img src = "/github-svgrepo-com.svg" alt = "githHub logo" className = "scalable-logo" />
+            </a>
+            <a href="mailto:anosovmo@ualberta.ca,anosovartemiy9@gmail.com" target = "_blank" rel = "noopner noreferrer" >
+              <img src = "/gmail-svgrepo-com.svg" alt = "githHub logo" className = "scalable-logo" />
             </a>
           </div>
-            <p>Email 1: <a href="mailto:email1@example.com">anosovm@ualberta.ca</a></p>
-            <p></p>
-            <p>Email 2: <a href="mailto:email2@example.com">anosovartemiy9@gmail.com</a></p>
         </div>
       </div>
 

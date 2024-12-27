@@ -28,9 +28,9 @@
   
   /* Moving Gradient Background */
   body {
-    background: linear-gradient(120deg, #135671, #203984, #111576, #451c7b, #6b1795);
+    background: linear-gradient(120deg, #ffffff, #dff5e2, #d6f7f9, #fceaff, #fff0cf);
     background-size: 400% 400%;
-    animation: gradientMove 10s ease infinite;
+    animation: gradientMove 20s ease infinite;
   }
   
   /* Keyframes for Gradient Animation */
