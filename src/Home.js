@@ -37,22 +37,24 @@ function App() {
       </div>
 
       <div className="main-content">
-        <div className="tabs-bar">
-          <div className="tabs">
-            <button
-              className={`tab-button ${activeTab === 'about' ? 'active' : ''}`}
-              onClick={() => setActiveTab('about')}
-            >
-              About Me
-            </button>
-            <button
-              className={`tab-button ${activeTab === 'projects' ? 'active' : ''}`}
-              onClick={() => setActiveTab('projects')}
-            >
-              Projects
-            </button>
+        <div className="nav-row">
+          <div className="tabs-bar">
+            <div className="tabs">
+              <button
+                className={`tab-button ${activeTab === 'about' ? 'active' : ''}`}
+                onClick={() => setActiveTab('about')}
+              >
+                About Me
+              </button>
+              <button
+                className={`tab-button ${activeTab === 'projects' ? 'active' : ''}`}
+                onClick={() => setActiveTab('projects')}
+              >
+                Projects
+              </button>
+            </div>
           </div>
-          <div className="switch-container-tabs">
+          <div className="dark-mode-toggle-container">
             <label className="switch">
               <input
                 type="checkbox"
