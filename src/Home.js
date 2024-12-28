@@ -11,20 +11,6 @@ function App() {
 
   return (
     <div className={`app ${theme}`} id="app">
-      
-      {/* Dark Mode Switch */}
-      <div className="switch-container">
-        <label className="switch">
-          <input
-            type="checkbox"
-            onChange={toggleDarkMode}
-            checked={theme === 'dark'}
-          />
-          <span className="slider round"></span>
-        </label>
-      </div>
-
-      {/* Sidebar (Minimal) */}
       <div className="sidebar">
         <img
           src="YOUR_PROFILE_PICTURE.jpg"
@@ -50,38 +36,52 @@ function App() {
         </div>
       </div>
 
-      {/* Main Content with Tabs */}
       <div className="main-content">
-        <div className="tabs">
-          <button
-            className={`tab-button ${activeTab === 'about' ? 'active' : ''}`}
-            onClick={() => setActiveTab('about')}
-          >
-            About Me
-          </button>
-          <button
-            className={`tab-button ${activeTab === 'projects' ? 'active' : ''}`}
-            onClick={() => setActiveTab('projects')}
-          >
-            Projects
-          </button>
+        <div className="tabs-bar">
+          <div className="tabs">
+            <button
+              className={`tab-button ${activeTab === 'about' ? 'active' : ''}`}
+              onClick={() => setActiveTab('about')}
+            >
+              About Me
+            </button>
+            <button
+              className={`tab-button ${activeTab === 'projects' ? 'active' : ''}`}
+              onClick={() => setActiveTab('projects')}
+            >
+              Projects
+            </button>
+          </div>
+          <div className="switch-container-tabs">
+            <label className="switch">
+              <input
+                type="checkbox"
+                onChange={toggleDarkMode}
+                checked={theme === 'dark'}
+              />
+              <span className="slider round"></span>
+            </label>
+          </div>
         </div>
+
         <div className="tab-content">
           <div
             id="about"
             className={`tab-panel ${activeTab === 'about' ? 'active' : ''}`}
           >
             <h1>About Me</h1>
-            <p>
-              I’m an aspiring software engineer at the University of Alberta,
-              graduating in 2026 and an active member of the software team
-              for the U of A Rocketry Group. My passion lies in building
-              real-world solutions and experimenting with new technologies—
-              whether through personal coding projects or high-stakes
-              aerospace collaborations. I’m always eager to explore fresh
-              challenges, learn from others, and make a positive impact
-              through software.
-            </p>
+            <div className="box-content">
+              <p>
+                I’m an aspiring software engineer at the University of Alberta,
+                graduating in 2026 and an active member of the software team
+                for the U of A Rocketry Group. My passion lies in building
+                real-world solutions and experimenting with new technologies—
+                whether through personal coding projects or high-stakes
+                aerospace collaborations. I’m always eager to explore fresh
+                challenges, learn from others, and make a positive impact
+                through software.
+              </p>
+            </div>
           </div>
           <div
             id="projects"

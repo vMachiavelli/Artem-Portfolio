@@ -11,6 +11,7 @@
   --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   --hover-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   --transition-speed: 0.3s;
+  --flush-bg: #444;
 }
 
 * {
@@ -19,20 +20,26 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  min-height: 100%;
+html, body {
+  height: 100%;
   font-family: 'Roboto', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 .app {
-  display: flex;
-  flex-direction: row;
   min-height: 100vh;
   width: 100%;
-  overflow-x: hidden;
-  position: relative;
+  display: flex;
+  gap: 20px;
+  padding: 20px; 
+  box-sizing: border-box;
   transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
 }
 
 .app.light {
@@ -66,71 +73,16 @@ body {
   }
 }
 
-/* Larger, more emphasized slider switch */
-.switch-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 999;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; 
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #666;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  bottom: 4px;
-  background-color: #fff;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #444;
-}
-
-input:checked + .slider:before {
-  transform: translateX(28px);
-}
-
-/* Sidebar */
 .sidebar {
   width: 15%;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 20px;
+  min-width: 200px; 
   background-color: rgba(47, 42, 42, 0.198);
   box-shadow: var(--base-shadow);
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 }
 
 .profile-pic {
@@ -172,42 +124,50 @@ input:checked + .slider:before {
   transform: scale(1.1);
 }
 
-/* Main Content */
 .main-content {
   flex: 1;
-  margin: 10px;
-  border-radius: 20px;
   background-color: rgba(47, 42, 42, 0.198);
   box-shadow: var(--base-shadow);
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding: 20px;
+  position: relative;
+}
+
+/* Tabs Bar */
+.tabs-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+  gap: 20px;
+  margin: 20px auto 0 auto;
+  background-color: var(--flush-bg);
+  border-radius: 30px;
+  padding: 8px 16px;
+  width: fit-content;
 }
 
 /* Tabs */
 .tabs {
-  display: flex;
-  justify-content: center;
-  background-color: #444;
-  padding: 10px;
-  border-radius: 20px 20px 0 0;
-  margin-bottom: 20px;
+  display: inline-flex;
 }
 
 .tab-button {
   background: #fff;
-  border: 1px solid #ddd;
+  border: none;
   padding: 10px 20px;
   margin: 0 5px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 5px;
-  transition: background var(--transition-speed);
+  border-radius: 20px;
+  transition: background var(--transition-speed), color var(--transition-speed);
+  box-shadow: var(--card-shadow);
 }
 
 .tab-button:hover {
-  background: #eee;
+  background: #ddd;
 }
 
 .tab-button.active {
@@ -215,11 +175,66 @@ input:checked + .slider:before {
   color: #fff;
 }
 
-/* Tab Content */
+/* Dark Mode Switch (inside tabs bar) */
+.switch-container-tabs {
+  display: inline-flex;
+  align-items: center;
+  background-color: #555;
+  border-radius: 9999px;
+  padding: 4px 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin-left: 5px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #666;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 .tab-content {
   flex: 1;
   position: relative;
   overflow: hidden;
+  padding: 10px;
 }
 
 .tab-panel {
@@ -231,13 +246,27 @@ input:checked + .slider:before {
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0;
   pointer-events: none;
-  padding: 0 10px;
 }
 
 .tab-panel.active {
   transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
+}
+
+/* About Me Box */
+.box-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  color: var(--text-dark);
+  transition: transform 0.3s ease;
+  margin-top: 10px;
+}
+
+.box-content:hover {
+  transform: translateY(-2px);
 }
 
 /* Projects */
@@ -265,14 +294,48 @@ input:checked + .slider:before {
   box-shadow: var(--hover-shadow);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .app {
     flex-direction: column;
+    gap: 20px;
   }
   .sidebar,
   .main-content {
     width: 100%;
-    margin: 10px 0;
+  }
+  .tabs-bar {
+    margin: 20px auto 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .tab-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .switch {
+    width: 40px;
+    height: 20px;
+  }
+  .slider:before {
+    width: 14px;
+    height: 14px;
+    left: 3px;
+    bottom: 3px;
+  }
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
