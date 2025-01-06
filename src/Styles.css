@@ -1,13 +1,25 @@
 :root {
-  --light-bg-start: #ffffff;
-  --light-bg-mid1: #dff5e2;
-  --light-bg-mid2: #d6f7f9;
-  --light-bg-mid3: #fceaff;
-  --light-bg-end: #fff0cf;
-  --dark-bg: #1c1c1c;
+  /* Soft Gray Gradient for Light Mode */
+  --light-bg-start: #f3f3f3;
+  --light-bg-mid1: #e7e7e7;
+  --light-bg-mid2: #ececec;
+  --light-bg-mid3: #dcdcdc;
+  --light-bg-end:   #f0f0f0;
+
+  /* Dark Mode Variables (unchanged) */
+  --dark-bg-start: #1a1a1a; 
+  --dark-bg-end: #0c1f3f;
+
   --text-dark: #333;
   --text-light: #fff;
   --base-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  --hover-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  --transition-speed: 0.3s;
+  --flush-bg: #444;
+
+  /* Shadows & Other Variables */
+  --base-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   --hover-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   --transition-speed: 0.3s;
@@ -36,7 +48,7 @@ body {
   width: 100%;
   display: flex;
   gap: 20px;
-  padding: 20px;
+  padding: 75px;
   box-sizing: border-box;
   position: relative;
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -45,19 +57,23 @@ body {
 .app.light {
   background: linear-gradient(
     120deg,
-    var(--light-bg-start),
-    var(--light-bg-mid1),
-    var(--light-bg-mid2),
-    var(--light-bg-mid3),
-    var(--light-bg-end)
+    #f5f5f5,
+    #ebebeb,
+    #f5f5f5
   );
-  background-size: 400% 400%;
-  animation: gradientMove 20s ease infinite;
+  background-size: 300% 300%;
+  animation: gradientMove 15s ease infinite;
   color: var(--text-dark);
 }
 
 .app.dark {
-  background: var(--dark-bg);
+  background: linear-gradient(
+    120deg,
+    var(--dark-bg-start),
+    var(--dark-bg-end)
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 20s ease infinite;
   color: var(--text-light);
 }
 
@@ -76,10 +92,11 @@ body {
 .sidebar {
   width: 15%;
   min-width: 200px;
+  max-height: fit-content;
   background-color: rgba(47, 42, 42, 0.198);
   box-shadow: var(--base-shadow);
   border-radius: 20px;
-  padding: 20px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;

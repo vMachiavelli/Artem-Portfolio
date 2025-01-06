@@ -19,8 +19,7 @@ function App() {
         />
         <h2>Your Name</h2>
         <p className="short-intro">
-          Software Engineer @ UAlberta. Passionate about aerospace, coding,
-          and hands-on solutions.
+          Software engineer @ University of Alberta 2026 grad
         </p>
         <h3 className="connect-title">Connect With Me</h3>
         <div className="logos">
